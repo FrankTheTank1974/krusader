@@ -1,0 +1,213 @@
+            ----------------------------------
+            Krusader installation instructions
+            ----------------------------------
+
+
+--- Note
+
+Krusader-2.9.0-dev versions and higher use libraries like Qt6 and KF6, and will not
+work anymore on KDE Framework 5 or older.
+
+
+--- Supported Platforms
+
+* All POSIX (Linux®/BSD/UNIX®-like OSes), Solaris™
+
+At the moment, for some libraries like KF6, there are no full ports for Windows
+or Mac® OS X, which means these platforms are not supported.
+
+
+========================================
+Installation on Linux® and BSD platforms
+========================================
+
+
+--- Preliminary steps if Krusader was already installed
+
+If Krusader was already installed: it's better to backup its settings before
+uninstalling Krusader and installing a new version. Those folders can be
+backed up (just in case):
+        ~/.local
+        ~/.kde
+        ~/.config
+
+
+--- Krusader dependencies
+
+The next packages are needed when running the Krusader binary.
+
+This is a list of the package names that Debian/Kubuntu/Ubuntu use, other
+Linux distros will probably use similar names:
+
+- plasma-framework      Plasma Runtime components
+- libc6                 GNU C Library: Shared libraries
+- libgcc1               GCC support library
+- libqt6dbus6           Qt 6 D-Bus module
+- libqt6xml6            Qt 6 XML module
+- libqt6core6           Qt 6 core module
+- libqt6gui6            Qt 6 GUI module
+- libqt6printsupport6   Qt 6 print support module
+- libstdc++6            The GNU Standard C++ Library v3
+- zlib1g                compression library - runtime
+
+
+--- Suggested packages
+
+The next packages are optional but they will make Krusader much more powerful and useful.
+
+This is a list of the package names that Debian and Ubuntu/Kubuntu 22.04 (LTS) use, other Linux
+distros will probably use similar names:
+
+- ark                   archive utility by KDE
+
+- breeze-icon-theme     Breeze icons
+
+- bzip2                 high-quality block-sorting file compressor - utilities
+- cpio                  GNU cpio -- a program to manage archives of files
+
+- kate                  Powerful Text Editor
+or ktexteditor-katepart Provides text editing services
+
+- kde-cli-tools         tools required to edit file types from Properties dialog
+                        or run Krusader in root mode
+
+- keditbookmarks        Bookmark manager used for editing bookmarks
+
+- khelpcenter           KDE help viewer
+
+- kio-extras            Enables transparent handling of various archive types
+                        such as .tar and network protocols like SFTP
+
+- kdiff3                compares and merges 2 or 3 files or directories
+or kompare              file difference viewer
+or xxdiff               a graphical file and directories comparison and merge tool
+
+- konsole               X terminal emulator
+- krename               Powerful batch renamer by KDE
+
+- hashdeep              enhanced message digest calculator
+or cfv                  versatile file checksum creator and verifier
+
+- p7zip                 7zr file archiver with high compression ratio
+- rpm                   Red Hat package manager
+
+- unrar                 Unarchiver for .rar files (non-free version)
+or unrar-free           Unarchiver for .rar files
+or rar                  Archiver for .rar files
+
+- unzip                 De-archiver for .zip files
+- zip                   Archiver for .zip files
+
+
+--- Compilation requirements
+
+The next packages are needed for compiling the Krusader sourcecode, if you only
+run the Krusader binary you don't need to install these packages.
+
+- build-essential        a group of packages needed to compile source code
+- cmake                  a cross-platform, open-source make system
+- extra-cmake-modules    extra cmake modules for compiling KDE Frameworks
+- git                    a revision control system 
+- gettext                GNU Internationalization utilities
+- zlib1g-dev             in order to make building easier (https://stackoverflow.com/a/49072832)
+
+The following packages should install (through dependencies) all the packages
+you need to compile KF6 software:
+- libkf6archive-dev      development files for karchive
+- libkf6crash-dev        application crash analysis and bug report from apps
+- libkf6doctools-dev     development files for kdoctools
+- libkf6iconthemes-dev   development files for kiconthemes
+- libkf6kio-dev          resource and network access abstraction
+- libkf6notifications-dev   framework for desktop notifications
+- libkf6parts-dev        development files for kparts
+- libkf6statusnotifieritem-dev  Implementation of Status Notifier Items
+- libkf6textwidgets-dev  development files for ktextwidgets
+- libkf6wallet-dev       development files for kwallet-framework
+- libkf6xmlgui-dev       user configurable main windows
+- qt6-5compat-dev        to use the Qt5 Core APIs that were removed in Qt6
+
+
+--- Krusader source code download
+
+Krusader is developed on Invent KDE hub at https://invent.kde.org/utilities/krusader.
+
+To download the latest source code, clone the repository with git:
+$ git clone https://invent.kde.org/utilities/krusader
+$ cd krusader
+
+You'll land on the 'master' branch that has the latest development updates and features but potentially could have regressions.
+If you'd like switch to the 'stable' branch, which contains backported bug fixes on top of the latest release, run
+$ git checkout -b stable origin/stable
+
+You can also use one of the released snapshots available at https://download.kde.org/stable/krusader/.
+Besides the source code, the snapshots contain translations.
+Unpack the archive with:
+$ tar -xvf krusader-x.y.z.tar.xz
+$ mv krusader-x.y.z krusader
+$ cd krusader
+
+
+--- Build configuration
+
+These are some CMake options that can be used, it's not necessary to use
+them all (later there's an example):
+
+-DCMAKE_INSTALL_PREFIX=/usr
+  is the location where Krusader will be installed with the make command.
+  Another example is: -DCMAKE_INSTALL_PRFIX=/opt/krusader
+  to install the compiled Krusader in an other directory to not overwrite
+  the Krusader version installed by your package manager.
+
+-DCMAKE_CXX_FLAGS="-O2 -fPIC"
+  this flag is required if you have a 64 bit system.
+
+-DKDE_INSTALL_PLUGINDIR=
+  in some systems, the path to Qt6 plugins (for installing the KrArc and ISO KIO plugins) must be specified.
+
+-DKDESU_PATH=/foo/bar/kdesu
+  this needs to be set on distributions that override default kdesu installation
+  path (libexec/kf6/kdesu) or if your install prefix doesn't match KDE's.
+
+-DENABLE_SYNCHRONIZER=OFF
+  disables building the Synchronizer module. This module caused data loss, now
+  it is fixed, but we treat it as the thin ice.
+
+It is maybe necessary to define the path to Qt6, e.g. in Kubuntu 24.04 and older versions:
+-DCMAKE_PREFIX_PATH="/usr/lib/x86_64-linux-gnu/cmake/Qt6/"
+  Note: If Krusader is going to be built under the 22.04 LTS (or older) version of Ubuntu (or Kubuntu, etc.) then
+  installing Qt 6.4 (or newer) is needed (it can be downloaded from https://www.qt.io/offline-installers) and
+  the argument would be (if e.g. Qt was installed inside "/opt")
+      -DCMAKE_PREFIX_PATH="/opt/Qt/6.4/gcc_64/"
+
+Example steps to configure the build:
+$ cd ..
+$ ls krusader/app/main.cpp || echo "Incorrect starting dir"
+$ mkdir krusader-build
+$ cd krusader-build
+$ cmake ../krusader -DCMAKE_INSTALL_PREFIX=/usr/ -DCMAKE_C_FLAGS="-O2 -fPIC" -DCMAKE_CXX_FLAGS="-O2 -fPIC"
+
+Note: An example of an output of cmake can be seen in https://invent.kde.org/utilities/krusader/snippets/1024
+
+
+--- Compilation and installation
+
+Execute:
+# Note: On a multi cpu/core system you might want to speed up the compile process by increasing the number of jobs (e.g. `make -j4`)
+$ make
+
+# At the beginning of the following command: `sudo` must be added if Kubuntu, Ubuntu, Debian, or similar is being used
+$ su -c "make install"
+
+Note: An example of an output of make can be seen in https://invent.kde.org/utilities/krusader/snippets/1025
+
+
+--- Execution
+
+Finally, Krusader can be executed this way:
+$ krusader
+
+
+--- Uninstall
+
+# At the beginning of the following command: `sudo` must be added if Kubuntu, Ubuntu, Debian, or similar is being used
+$ su -c "make uninstall"
