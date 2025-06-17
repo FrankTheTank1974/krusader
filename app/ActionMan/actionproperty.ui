@@ -1,0 +1,1095 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ActionProperty</class>
+ <widget class="QWidget" name="ActionProperty">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>538</width>
+    <height>497</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Action Property</string>
+  </property>
+  <layout class="QGridLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tabBasic">
+      <attribute name="title">
+       <string>Basic Properties</string>
+      </attribute>
+      <layout class="QGridLayout">
+       <item row="8" column="3">
+        <widget class="QToolButton" name="ButtonAddStartpath">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="LabelDescription">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="whatsThis">
+          <string>A detailed description of the &lt;b&gt;Useraction&lt;/b&gt;. It is only displayed in the &lt;i&gt;Konfigurator&lt;/i&gt; and via &lt;code&gt;Shift+F1&lt;/code&gt;.</string>
+         </property>
+         <property name="text">
+          <string>Description:</string>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="2" colspan="2">
+        <widget class="QGroupBox" name="bgAccept">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="title">
+          <string>Command Accepts</string>
+         </property>
+         <layout class="QGridLayout">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="radioLocal">
+            <property name="whatsThis">
+             <string>Substitute the &lt;b&gt;Placeholders&lt;/b&gt; with local filenames.</string>
+            </property>
+            <property name="text">
+             <string>&amp;Local files only (no URLs)</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="radioUrl">
+            <property name="whatsThis">
+             <string>Substitute the &lt;b&gt;Placeholders&lt;/b&gt; with valid URLs.</string>
+            </property>
+            <property name="text">
+             <string>URLs (re&amp;mote and local)</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="3">
+        <widget class="KLineEdit" name="leTitle">
+         <property name="whatsThis">
+          <string>The title displayed in the &lt;b&gt;Usermenu&lt;/b&gt;.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="LabelTitle">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="whatsThis">
+          <string>The title displayed in the &lt;b&gt;Usermenu&lt;/b&gt;.</string>
+         </property>
+         <property name="text">
+          <string>Title:</string>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1" rowspan="2" colspan="3">
+        <layout class="QHBoxLayout">
+         <item>
+          <layout class="QVBoxLayout">
+           <item>
+            <widget class="KLineEdit" name="leDistinctName">
+             <property name="whatsThis">
+              <string>Unique name of the &lt;b&gt;Useraction&lt;/b&gt;. It is only used in the &lt;i&gt;Konfigurator&lt;/i&gt; and does not appear in any other menu.&lt;p&gt;&lt;b&gt;Note&lt;/b&gt;: the &lt;i&gt;Title&lt;/i&gt; shown in the &lt;b&gt;Usermenu&lt;/b&gt; can be set below.</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="KComboBox" name="cbCategory">
+             <property name="whatsThis">
+              <string>&lt;b&gt;Useractions&lt;/b&gt; can be grouped in categories for better distinction. Choose a existing &lt;i&gt;Category&lt;/i&gt; or create a new one by entering a name.</string>
+             </property>
+             <property name="editable">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="KIconButton" name="ButtonIcon">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="whatsThis">
+            <string>Each &lt;b&gt;Useraction&lt;/b&gt; can have its own icon. It will appear in front of the title in the &lt;b&gt;Usermenu&lt;/b&gt;.</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="LabelDistinctName">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="whatsThis">
+          <string>&lt;p&gt;Unique name of the &lt;b&gt;Useraction&lt;/b&gt;. It is only used in the &lt;i&gt;Konfigurator&lt;/i&gt; and does not appear in any other menu.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note&lt;/b&gt;: The &lt;i&gt;Title&lt;/i&gt; shown in the &lt;b&gt;Usermenu&lt;/b&gt; can be set below.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Identifier:</string>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="LabelCommandline">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="whatsThis">
+          <string>&lt;p&gt;The &lt;i&gt;Command&lt;/i&gt; defines the command that will be executed when the &lt;b&gt;Useraction&lt;/b&gt; is used. It can be a simple shell command or a complex sequence of multiple commands with &lt;b&gt;Placeholders&lt;/b&gt;.&lt;/p&gt;&lt;p&gt;Examples:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;code&gt;eject /mnt/cdrom&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;amarok --append %aList(&quot;Selected&quot;)%&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;Please consult the handbook to learn more about the syntax.&lt;/p&gt;</string>
+         </property>
+         <property name="text">
+          <string>Command:</string>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1" colspan="3">
+        <widget class="KLineEdit" name="leTooltip">
+         <property name="whatsThis">
+          <string>The &lt;i&gt;Tooltip&lt;/i&gt; is shown when the mouse cursor is hold over an entry of the &lt;b&gt;Useraction Toolbar&lt;/b&gt;.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1" colspan="2">
+        <widget class="KLineEdit" name="leStartpath">
+         <property name="whatsThis">
+          <string>The &lt;i&gt;Workdir&lt;/i&gt; defines in which folder the &lt;i&gt;Command&lt;/i&gt; will be executed.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="LabelTooltip">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="whatsThis">
+          <string>The &lt;i&gt;Tooltip&lt;/i&gt; is shown when the mouse cursor is hold over an entry of the &lt;b&gt;Useraction Toolbar&lt;/b&gt;.</string>
+         </property>
+         <property name="text">
+          <string>Tooltip:</string>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1" colspan="2">
+        <widget class="KLineEdit" name="leCommandline">
+         <property name="whatsThis">
+          <string>The &lt;i&gt;Command&lt;/i&gt; defines the command that will be executed when the &lt;b&gt;Useraction&lt;/b&gt; is used. It can be a simple shell command or a complex sequence of multiple commands with &lt;b&gt;Placeholders&lt;/b&gt;.&lt;p&gt;
+Examples:&lt;ul&gt;&lt;li&gt;&lt;code&gt;eject /mnt/cdrom&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;amarok --append %aList(&quot;Selected&quot;)%&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+Please consult the handbook to learn more about the syntax.</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="LabelCategory">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="whatsThis">
+          <string>&lt;b&gt;Useractions&lt;/b&gt; can be grouped in categories for better distinction. Choose a existing &lt;i&gt;Category&lt;/i&gt; or create a new one by entering a name.</string>
+         </property>
+         <property name="text">
+          <string>Category:</string>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="3">
+        <widget class="QToolButton" name="ButtonAddPlaceholder">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="whatsThis">
+          <string>Add &lt;b&gt;Placeholders&lt;/b&gt; for the selected files in the panel.</string>
+         </property>
+         <property name="text">
+          <string>&amp;Add</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1" rowspan="3" colspan="3">
+        <widget class="KTextEdit" name="textDescription">
+         <property name="whatsThis">
+          <string>A detailed description of the &lt;b&gt;Useraction&lt;/b&gt;. It is only displayed in the &lt;i&gt;Konfigurator&lt;/i&gt; and via &lt;code&gt;Shift+F1&lt;/code&gt;.</string>
+         </property>
+         <property name="tabChangesFocus">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="LabelStartpath">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="whatsThis">
+          <string>The &lt;i&gt;Workdir&lt;/i&gt; defines in which folder the &lt;i&gt;Command&lt;/i&gt; will be executed.</string>
+         </property>
+         <property name="text">
+          <string>Workdir:</string>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <spacer>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Expanding</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>80</width>
+           <height>19</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="10" column="2" colspan="2">
+        <layout class="QHBoxLayout">
+         <item>
+          <widget class="QLabel" name="LabelShortcut">
+           <property name="text">
+            <string>Default shortcut:</string>
+           </property>
+           <property name="wordWrap">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Expanding</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>161</width>
+             <height>21</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="KKeySequenceWidget" name="KeyButtonShortcut" native="true">
+           <property name="whatsThis">
+            <string>Set a default keyboard shortcut.</string>
+           </property>
+           <property name="text" stdset="0">
+            <string comment="No shortcut">None</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="11" column="2" colspan="2">
+        <widget class="QCheckBox" name="chkEnabled">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="whatsThis">
+          <string>If checked, the action is shown in the Useractions menus.</string>
+         </property>
+         <property name="text">
+          <string>Enabled</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0" rowspan="3" colspan="2">
+        <widget class="QGroupBox" name="bgExecType">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="title">
+          <string>Execution Mode</string>
+         </property>
+         <layout class="QGridLayout">
+          <item row="3" column="0">
+           <widget class="QRadioButton" name="radioCollectOutput">
+            <property name="whatsThis">
+             <string>Collect the output of the executed program.</string>
+            </property>
+            <property name="text">
+             <string>Collect output</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QCheckBox" name="chkSeparateStdError">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="whatsThis">
+             <string>Separate standard out and standard error in the output collection.</string>
+            </property>
+            <property name="text">
+             <string>Separate standard error</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="radioNormal">
+            <property name="text">
+             <string>&amp;Normal</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="radioTerminal">
+            <property name="whatsThis">
+             <string>Run the command in a terminal.</string>
+            </property>
+            <property name="text">
+             <string>Run in terminal</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="radioTE">
+            <property name="whatsThis">
+             <string>Run the command in the embedded terminal emulator.</string>
+            </property>
+            <property name="text">
+             <string>Run in the embedded terminal emulator</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabAdv">
+      <attribute name="title">
+       <string>Advanced Properties</string>
+      </attribute>
+      <layout class="QGridLayout">
+       <item row="0" column="0" colspan="2">
+        <widget class="QGroupBox" name="gbShowonly">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="title">
+          <string>The Useraction is only available for</string>
+         </property>
+         <layout class="QGridLayout">
+          <item row="0" column="0">
+           <widget class="QTabWidget" name="tabShowonly">
+            <property name="tabShape">
+             <enum>QTabWidget::Triangular</enum>
+            </property>
+            <widget class="QWidget" name="tabProt">
+             <attribute name="title">
+              <string>Protocol</string>
+             </attribute>
+             <layout class="QGridLayout">
+              <item row="0" column="1">
+               <widget class="QToolButton" name="ButtonNewProtocol">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>32767</width>
+                  <height>32767</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string comment="New protocol">&amp;New...</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QToolButton" name="ButtonEditProtocol">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>32767</width>
+                  <height>32767</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Chan&amp;ge...</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <spacer>
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Expanding</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>21</width>
+                  <height>58</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="2" column="1">
+               <widget class="QToolButton" name="ButtonRemoveProtocol">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>32767</width>
+                  <height>32767</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>De&amp;lete</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" rowspan="4">
+               <widget class="KrListWidget" name="lbShowonlyProtocol" native="true">
+                <property name="whatsThis">
+                 <string>Show the &lt;b&gt;Useraction&lt;/b&gt; only for the values defined here.</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="tabPath">
+             <attribute name="title">
+              <string>Path</string>
+             </attribute>
+             <layout class="QGridLayout">
+              <item row="0" column="0" rowspan="4">
+               <widget class="KrListWidget" name="lbShowonlyPath" native="true">
+                <property name="whatsThis">
+                 <string>Show the &lt;b&gt;Useraction&lt;/b&gt; only for the values defined here.</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QToolButton" name="ButtonAddPath">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>32767</width>
+                  <height>32767</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string comment="New path">&amp;New...</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QToolButton" name="ButtonEditPath">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>32767</width>
+                  <height>32767</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Chan&amp;ge...</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QToolButton" name="ButtonRemovePath">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>32767</width>
+                  <height>32767</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>De&amp;lete</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <spacer>
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Expanding</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>21</width>
+                  <height>61</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="tabMime">
+             <attribute name="title">
+              <string>MIME Type</string>
+             </attribute>
+             <layout class="QGridLayout">
+              <item row="0" column="0" rowspan="4">
+               <widget class="KrListWidget" name="lbShowonlyMime" native="true">
+                <property name="whatsThis">
+                 <string>Show the &lt;b&gt;Useraction&lt;/b&gt; only for the values defined here.</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QToolButton" name="ButtonAddMime">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>32767</width>
+                  <height>32767</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string comment="New MIME">&amp;New...</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QToolButton" name="ButtonEditMime">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>32767</width>
+                  <height>32767</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Chan&amp;ge...</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QToolButton" name="ButtonRemoveMime">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>32767</width>
+                  <height>32767</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>De&amp;lete</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <spacer>
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Expanding</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>21</width>
+                  <height>41</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="TabFile">
+             <attribute name="title">
+              <string>File Name</string>
+             </attribute>
+             <layout class="QGridLayout">
+              <item row="0" column="0" rowspan="4">
+               <widget class="KrListWidget" name="lbShowonlyFile" native="true">
+                <property name="whatsThis">
+                 <string>Show the &lt;b&gt;Useraction&lt;/b&gt; only for the file names defined here. The wildcards '&lt;code&gt;?&lt;/code&gt;' and '&lt;code&gt;*&lt;/code&gt;' can be used.</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QToolButton" name="ButtonNewFile">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>32767</width>
+                  <height>32767</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string comment="New file">&amp;New...</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QToolButton" name="ButtonEditFile">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>32767</width>
+                  <height>32767</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Chan&amp;ge...</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QToolButton" name="ButtonRemoveFile">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>32767</width>
+                  <height>32767</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>De&amp;lete</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <spacer>
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Expanding</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>21</width>
+                  <height>41</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <widget class="QCheckBox" name="chkConfirmExecution">
+         <property name="whatsThis">
+          <string>Allows one to tweak the &lt;i&gt;Command&lt;/i&gt; before it is executed.</string>
+         </property>
+         <property name="text">
+          <string>Confirm each program call separately</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QCheckBox" name="chkDifferentUser">
+         <property name="whatsThis">
+          <string>Execute the &lt;i&gt;Command&lt;/i&gt; under a different user ID.</string>
+         </property>
+         <property name="text">
+          <string>Run as different user:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="KLineEdit" name="leDifferentUser">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="whatsThis">
+          <string>Execute the &lt;i&gt;Command&lt;/i&gt; under a different user ID.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="2">
+        <spacer>
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Expanding</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>161</width>
+           <height>102</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>KTextEdit</class>
+   <extends>QTextEdit</extends>
+   <header>ktextedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>klineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KKeySequenceWidget</class>
+   <extends>QWidget</extends>
+   <header>kkeysequencewidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KIconButton</class>
+   <extends>QPushButton</extends>
+   <header>KIconButton</header>
+  </customwidget>
+  <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KrListWidget</class>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>leDistinctName</tabstop>
+  <tabstop>ButtonIcon</tabstop>
+  <tabstop>cbCategory</tabstop>
+  <tabstop>leTitle</tabstop>
+  <tabstop>leTooltip</tabstop>
+  <tabstop>textDescription</tabstop>
+  <tabstop>leCommandline</tabstop>
+  <tabstop>ButtonAddPlaceholder</tabstop>
+  <tabstop>leStartpath</tabstop>
+  <tabstop>ButtonAddStartpath</tabstop>
+  <tabstop>radioNormal</tabstop>
+  <tabstop>radioTerminal</tabstop>
+  <tabstop>radioTE</tabstop>
+  <tabstop>radioCollectOutput</tabstop>
+  <tabstop>chkSeparateStdError</tabstop>
+  <tabstop>radioLocal</tabstop>
+  <tabstop>radioUrl</tabstop>
+  <tabstop>KeyButtonShortcut</tabstop>
+  <tabstop>chkEnabled</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>tabShowonly</tabstop>
+  <tabstop>ButtonNewProtocol</tabstop>
+  <tabstop>ButtonEditProtocol</tabstop>
+  <tabstop>ButtonRemoveProtocol</tabstop>
+  <tabstop>ButtonAddPath</tabstop>
+  <tabstop>ButtonEditPath</tabstop>
+  <tabstop>ButtonRemovePath</tabstop>
+  <tabstop>ButtonAddMime</tabstop>
+  <tabstop>ButtonEditMime</tabstop>
+  <tabstop>ButtonRemoveMime</tabstop>
+  <tabstop>ButtonNewFile</tabstop>
+  <tabstop>ButtonEditFile</tabstop>
+  <tabstop>ButtonRemoveFile</tabstop>
+  <tabstop>chkConfirmExecution</tabstop>
+  <tabstop>chkDifferentUser</tabstop>
+  <tabstop>leDifferentUser</tabstop>
+ </tabstops>
+ <includes>
+  <include location="local">klineedit.h</include>
+  <include location="local">klineedit.h</include>
+  <include location="local">kcombobox.h</include>
+  <include location="local">klineedit.h</include>
+  <include >KIconDialog</include>
+  <include location="local">klineedit.h</include>
+  <include location="local">klineedit.h</include>
+  <include location="local">klineedit.h</include>
+  <include location="local">KTextEdit</include>
+  <include location="local">kkeysequencewidget.h</include>
+  <include location="local">../GUI/krlistwidget.h</include>
+  <include location="local">../GUI/krlistwidget.h</include>
+  <include location="local">../GUI/krlistwidget.h</include>
+  <include location="local">../GUI/krlistwidget.h</include>
+  <include location="local">klineedit.h</include>
+ </includes>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>radioCollectOutput</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>chkSeparateStdError</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chkDifferentUser</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>leDifferentUser</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
