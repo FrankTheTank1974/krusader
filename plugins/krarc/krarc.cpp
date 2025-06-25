@@ -487,7 +487,7 @@ KIO::WorkerResult kio_krarcProtocol::get(const QUrl &url, int tries)
         QString escapedFilename = file;
         if (arcType == "zip") // left bracket needs to be escaped
             escapedFilename.replace('[', "[[]");
-        proc << getCmd << getPath(arcFile->url());0
+        proc << getCmd << getPath(arcFile->url());
         if (arcType != "gzip" && arcType != "bzip2" && arcType != "lzma" && arcType != "xz" && arcType != "zstd")
             proc << localeEncodedString(escapedFilename);
         connect(&proc, &KrLinecountingProcess::newOutputData, this, &kio_krarcProtocol::receivedData);
