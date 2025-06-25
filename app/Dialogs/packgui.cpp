@@ -58,6 +58,8 @@ PackGUI::PackGUI(const QString &defaultName, const QString &defaultPath, qsizety
         typeData->addItem("tar.lzma");
     if (PS("tar") && PS("xz"))
         typeData->addItem("tar.xz");
+    if (PS("tar") && PS("zstd"))
+        typeData->addItem("tar.zst");
     if (PS("zip"))
         typeData->addItem("zip");
     if (PS("zip"))
@@ -72,6 +74,8 @@ PackGUI::PackGUI(const QString &defaultName, const QString &defaultPath, qsizety
         typeData->addItem("arj");
     if (PS("7z"))
         typeData->addItem("7z");
+    if (PS("zstd"))
+        typeData->addItem("zstd");
     // set the last used packer as the top one
     QString tmp = group.readEntry("lastUsedPacker", QString());
     if (!tmp.isEmpty()) {

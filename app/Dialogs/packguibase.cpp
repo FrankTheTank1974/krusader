@@ -371,7 +371,7 @@ void PackGUIBase::checkConsistency()
     TextLabel7->setEnabled(volumeEnabled);
 
     /* TODO */
-    setCompressionLevel->setEnabled(packer == "rar" || packer == "arj" || packer == "zip" || packer == "7z");
+    setCompressionLevel->setEnabled(packer == "rar" || packer == "arj" || packer == "zip" || packer == "7z" || packer == "zstd");
     bool sliderEnabled = setCompressionLevel->isEnabled() && setCompressionLevel->isChecked();
     compressionSlider->setEnabled(sliderEnabled);
     minLabel->setEnabled(sliderEnabled);
