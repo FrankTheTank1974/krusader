@@ -487,8 +487,8 @@ KIO::WorkerResult kio_krarcProtocol::get(const QUrl &url, int tries)
         QString escapedFilename = file;
         if (arcType == "zip") // left bracket needs to be escaped
             escapedFilename.replace('[', "[[]");
-        proc << getCmd << getPath(arcFile->url());
-        if (arcType != "gzip" && arcType != "bzip2" && arcType != "lzma" && arcType != "xz")
+        proc << getCmd << getPath(arcFile->url());0
+        if (arcType != "gzip" && arcType != "bzip2" && arcType != "lzma" && arcType != "xz" && arcType != "zstd")
             proc << localeEncodedString(escapedFilename);
         connect(&proc, &KrLinecountingProcess::newOutputData, this, &kio_krarcProtocol::receivedData);
         proc.setMerge(false);
@@ -513,7 +513,7 @@ KIO::WorkerResult kio_krarcProtocol::get(const QUrl &url, int tries)
 
     if (!extArcReady && !decompressToFile) {
         if (proc.exitStatus() != QProcess::NormalExit || !checkStatus(proc.exitCode())
-            || (arcType != "bzip2" && arcType != "lzma" && arcType != "xz" && expectedSize != decompressedLen)) {
+            || (arcType != "bzip2" && arcType != "lzma" && arcType != "xz" && arcType != "zstd" && expectedSize != decompressedLen)) {
             if (encrypted && tries) {
                 invalidatePassword();
                 return get(url, tries - 1);
@@ -947,6 +947,8 @@ KIO::WorkerResult kio_krarcProtocol::setArcFile(const QUrl &url)
         arcType = "lzma";
     else if (arcType == "txz")
         arcType = "xz";
+    else if (arcType == "tzst")
+        arcType = "zstd";
 
     if (arcType.isEmpty()) {
         arcType = arcFile->mimetype();
@@ -987,7 +989,7 @@ bool kio_krarcProtocol::initDirDict(const QUrl &url, bool forced)
         return false;
     }
 
-    if (arcType != "bzip2" && arcType != "lzma" && arcType != "xz") {
+    if (arcType != "bzip2" && arcType != "lzma" && arcType != "xz" && arcType != "zstd") {
         if (arcType == "rpm") {
             proc << listCmd << arcPath;
             proc.setStandardOutputFile(temp.fileName());
@@ -1023,7 +1025,7 @@ bool kio_krarcProtocol::initDirDict(const QUrl &url, bool forced)
 
     root->append(entry);
 
-    if (arcType == "bzip2" || arcType == "lzma" || arcType == "xz")
+    if (arcType == "bzip2" || arcType == "lzma" || arcType == "xz" || arcType == "zstd")
         abort();
 
     char buf[1000];
@@ -1383,6 +1385,14 @@ void kio_krarcProtocol::parseLine(int lineNo, QString line)
         mode = arcFile->mode();
         size = arcFile->size();
     }
+    if (arcType == "zstd") {
+        fullName = arcFile->name();
+        if (fullName.endsWith(QLatin1String("zst"))) {
+            fullName.truncate(fullName.length() - 4);
+        }
+        mode = arcFile->mode();
+        size = arcFile->size();
+    }
     if (arcType == "bzip2") {
         // There is no way to list bzip2 files, so we take our information from
         // the archive itself...
@@ -1646,6 +1656,13 @@ KIO::WorkerResult kio_krarcProtocol::initArcParameters()
         cmd = fullPathName("gzip");
         listCmd << fullPathName("gzip") << "-l";
         getCmd << fullPathName("gzip") << "-dc";
+        copyCmd = QStringList();
+        delCmd = QStringList();
+        putCmd = QStringList();
+    } else if (arcType == "zstd") {
+        cmd = fullPathName("zstd");
+        listCmd << fullPathName("zstd") << "-l";
+        getCmd << fullPathName("zstd") << "-dc";
         copyCmd = QStringList();
         delCmd = QStringList();
         putCmd = QStringList();
